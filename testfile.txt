@@ -1,4 +1,17 @@
-() ;)
+test for cleanHead coming up
+test for many matches at beginning, should be hi. got {{[[((!?hi
+test for single match, should be nothing. got [
+test for double match, should be nothing. got ((
+
+test for cleanTail coming up
+test for many matches at end, should be hi. got hi))}}]]!?
+test for single match, should be nothing. got ?
+test for double match, should be nothing. got ]]
+
+
+test for all coming up:
+should get nothing. got () ;)
+Are the following lines what you would expect from this file?
 (hi) {{[I] am" aladin?? --"and" 'There' ":;shouldn't". be;;" any problems.? here,
 Hello,   my name is Aladin. I am testing a text file. This is line 1.
 Now I am on line 2.
@@ -8,6 +21,8 @@ Line 5 here!
 Line 6 has a double space coming up  there.
 Now on line 7 a triple space coming up now   there.
 Line 8: Okay that is enough for now, bye.
+"HEY" is the (quote of the day - hello there!).
+'Only the words [of] this sentence ARE accepted...', you got that (mister)?
 
 adding a cool quote that ends with 3 special characters now "you are awesome!".
 hello there...

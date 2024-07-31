@@ -46,7 +46,7 @@ public class AllWords{
      * @param word - old word
      * @return new word
      */
-    public String removeHead(String word){
+    public String cleanHead(String word){
         char firstChar;
         int len = word.length();
         // if empty string, return empty string immediately
@@ -61,6 +61,11 @@ public class AllWords{
         while ((firstChar=='.' || firstChar==',' || firstChar==':' || firstChar==';' || firstChar=='{' || firstChar=='['
                 || firstChar=='?' || firstChar=='!'|| firstChar=='(' || firstChar=='<' || firstChar=='-'
                 || firstChar=='\'' || firstChar=='\"') && count < len){
+
+            //if match and it`s the only character left, return empty string
+            if (count == len - 1){
+                return "";
+            }
             count++;
             firstChar = word.charAt(count);
         }
@@ -73,7 +78,7 @@ public class AllWords{
      * @param word - old word
      * @return new word
      */
-    public String removeTail(String word){
+    public String cleanTail(String word){
         char lastChar;
         int len = word.length();
         // if empty string, return empty string immediately
@@ -119,8 +124,8 @@ public class AllWords{
                 // for each line array clean up leading and trailing punctuation and store into
                 // All 2D array.
                 for (int i = 0; i < lineArr.length; i++) {
-                    lineArr[i] = this.removeHead(lineArr[i]);
-                    lineArr[i] = this.removeTail(lineArr[i]);
+                    lineArr[i] = this.cleanHead(lineArr[i]);
+                    lineArr[i] = this.cleanTail(lineArr[i]);
                     // only store non-null strings
                     if (lineArr[i] != null && !Objects.equals(lineArr[i], "")){
                         All[lineNum][wordNum] = lineArr[i];
@@ -155,6 +160,7 @@ public class AllWords{
                     result = result + " " + All[i][j];
                 }
             }
+            result = result + "\n";
         }
         return result;
     }
@@ -162,9 +168,10 @@ public class AllWords{
         // main
         public static void main (String[] args){
 
-            // test: simple AllWords constructor on text file, display result
-            // (also tests initAll, removeHead, and removeTail in the process)
+            // test AllWords constructor on text file, display result
+            // (also tests initAll, cleanHead, and cleanTail in the process)
             // New test cases added to single testfile.txt document as testing progresses.
+            // tests for cleanHead and cleanTail are described in testfile.txt
             AllWords words = new AllWords("testfile.txt");
             String displayAll;
             displayAll = words.toString();
