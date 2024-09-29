@@ -30,10 +30,10 @@ public class Word {
      * initialize a new Word object
      * @return Word
      */
-    public Word initWord(){
-        // stub
-        return;
-    }
+    //public Word initWord(){
+
+     //   return;
+    //}
 
     /**
      * add coordinates of Word to wordLocations and increment repeatCount of word

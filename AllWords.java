@@ -126,6 +126,7 @@ public class AllWords{
                 for (int i = 0; i < lineArr.length; i++) {
                     lineArr[i] = this.cleanHead(lineArr[i]);
                     lineArr[i] = this.cleanTail(lineArr[i]);
+
                     // only store non-null strings
                     if (lineArr[i] != null && !Objects.equals(lineArr[i], "")){
                         All[lineNum][wordNum] = lineArr[i];
